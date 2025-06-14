@@ -10,40 +10,49 @@
       padding: 0;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
+      background: black;
       color: white;
       text-align: center;
-      background: black;
     }
 
-    /* Vesmírné hvězdy */
+    /* Vesmírné animované pozadí */
     .stars {
       position: fixed;
       width: 100%;
       height: 100%;
-      background: black url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Starsinthesky.jpg/640px-Starsinthesky.jpg') repeat;
-      background-size: cover;
       z-index: -1;
-      animation: moveStars 60s linear infinite;
-      opacity: 0.15;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      overflow: hidden;
+    }
+
+    .stars::after {
+      content: '';
+      position: absolute;
+      top: -1000px;
+      left: -1000px;
+      width: 3000px;
+      height: 3000px;
+      background: transparent url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/stars.png') repeat;
+      animation: moveStars 100s linear infinite;
+      opacity: 0.2;
     }
 
     @keyframes moveStars {
-      from { background-position: 0 0; }
-      to { background-position: -1000px 1000px; }
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(1000px, 1000px); }
     }
 
     h1 {
       animation: pulse 2s infinite;
-      font-size: 2.5em;
-      margin-top: 40px;
+      font-size: 1.5em;
+      margin-top: 30px;
     }
 
     @keyframes pulse {
       0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 0.85; }
     }
 
-    /* PET lahev místo rakety */
     .rocket {
       width: 60px;
       height: 150px;
@@ -133,5 +142,18 @@
 
   <button class="btn small-btn" onclick="alert('Tato sekce se právě dopracovává, brzy online!')">🧢 Merch</button>
   <button class="btn small-btn" onclick="alert('Tato sekce se právě dopracovává, brzy online!')">🎴 Kartičky</button>
+
+  <!-- Skrytý audio přehrávač -->
+  <audio id="bg-music" src="game.mp3" loop></audio>
+
+  <script>
+    // Spustí hudbu po prvním kliknutí
+    document.addEventListener("click", () => {
+      const audio = document.getElementById("bg-music");
+      if (audio && audio.paused) {
+        audio.play().catch(() => {});
+      }
+    });
+  </script>
 </body>
 </html>
