@@ -14,13 +14,14 @@
     body, html {
       height: 100%;
       font-family: Arial, sans-serif;
-      background: black;
       color: white;
+      background: black;
       overflow-x: hidden;
     }
 
     .content {
       position: relative;
+      z-index: 1;
       text-align: center;
       padding: 40px 10px 100px;
     }
@@ -77,8 +78,13 @@
       bottom: -10px;
     }
 
-    .engine.left { left: 2px; }
-    .engine.right { right: 2px; }
+    .engine.left {
+      left: 2px;
+    }
+
+    .engine.right {
+      right: 2px;
+    }
 
     .flame {
       width: 8px;
@@ -168,6 +174,16 @@
 
     <!-- Video sekce -->
     <div class="video-section">
-      <h2
+      <h2>🎬 Podívej se na ARES v rozhals:</h2>
+      <iframe src="https://www.youtube.com/embed/ATiPCtOr2OM" allowfullscreen></iframe>
+    </div>
 
+    <!-- Rozhlas sekce -->
+    <div class="video-section">
+      <h2>📻 ARES Rozhlas</h2>
+      <p>Brzy zde najdete audio zprávy, podcasty a rozhlasové hlášení o našich startech a výzkumu!</p>
+    </div>
+  </div>
 
+</body>
+</html>
