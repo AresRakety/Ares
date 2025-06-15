@@ -14,22 +14,15 @@
     body, html {
       height: 100%;
       font-family: Arial, sans-serif;
+      background: black;
       color: white;
       overflow-x: hidden;
     }
 
-    /* YouTube video pozadí */
-    
-    }
-
-   
-
     .content {
       position: relative;
-      z-index: 1;
       text-align: center;
       padding: 40px 10px 100px;
-      background: rgba(0, 0, 0, 0.6); /* tmavý průhledný překryv */
     }
 
     h1 {
@@ -84,13 +77,8 @@
       bottom: -10px;
     }
 
-    .engine.left {
-      left: 2px;
-    }
-
-    .engine.right {
-      right: 2px;
-    }
+    .engine.left { left: 2px; }
+    .engine.right { right: 2px; }
 
     .flame {
       width: 8px;
@@ -105,103 +93,4 @@
       filter: blur(1px);
     }
 
-    .engine.right .flame {
-      left: 1px;
-    }
-
-    @keyframes flameFlicker {
-      0% { height: 18px; opacity: 0.6; transform: scaleY(1); }
-      100% { height: 24px; opacity: 1; transform: scaleY(1.2); }
-    }
-
-    .btn {
-      display: inline-block;
-      background: #ff4d00;
-      padding: 10px 20px;
-      color: white;
-      font-size: 1em;
-      border: none;
-      border-radius: 10px;
-      text-decoration: none;
-      margin: 10px;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background: #ffa600;
-    }
-
-    .video-section {
-      margin-top: 60px;
-      padding-bottom: 50px;
-    }
-
-    .video-section iframe {
-      width: 90%;
-      max-width: 560px;
-      height: 315px;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #222;
-    }
-
-    .video-section h2 {
-      margin-bottom: 15px;
-    }
-
-    .video-section p {
-      font-size: 1em;
-      opacity: 0.9;
-      margin-top: 10px;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- YouTube background -->
-  <div class="video-bg">
-    <iframe
-      src="
-      frameborder="0"
-      allow="autoplay"
-      allowfullscreen
-    ></iframe>
-  </div>
-
-  <!-- Obsah -->
-  <div class="content">
-    <h1>🚀 Vítejte v ARES</h1>
-    <p>Prodáváme cool merch a kartičky inspirované vědou!</p>
-
-    <!-- Lahev jako raketa -->
-    <div class="rocket">
-      <div class="bottle-body">
-        <div class="bottle-cap"></div>
-        <div class="engine left"><div class="flame"></div></div>
-        <div class="engine right"><div class="flame"></div></div>
-      </div>
-    </div>
-
-    <!-- Tlačítka -->
-    <a class="btn" href="https://www.youtube.com/@stepisev" target="_blank">
-      📺 Sleduj naše starty na YouTube
-    </a><br>
-    <button class="btn" onclick="alert('Tato sekce se právě dopracovává, brzy online!')">🧢 Merch</button>
-    <button class="btn" onclick="alert('Tato sekce se právě dopracovává, brzy online!')">🎴 Kartičky</button>
-
-    <!-- Video sekce -->
-    <div class="video-section">
-      <h2>🎬 Podívej se na ARES rozhlas:</h2>
-      <iframe src="https://www.youtube.com/embed/ATiPCtOr2OM" allowfullscreen></iframe>
-    </div>
-
-    <!-- Rozhlas sekce -->
-    <div class="video-section">
-      <h2>📻 ARES Rozhlas</h2>
-      <p>Brzy zde najdete audio zprávy, podcasty a rozhlasové hlášení o našich startech a výzkumu!</p>
-    </div>
-
-  </div>
-
-</body>
-</html>
+    .e
