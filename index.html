@@ -15,31 +15,19 @@
       text-align: center;
     }
 
-    /* Vesmírné animované pozadí */
+    /* Funkční vesmírné pozadí přes CSS animaci hvězd */
     .stars {
       position: fixed;
       width: 100%;
       height: 100%;
+      background: #000 url('https://i.imgur.com/3aXqQyb.png') repeat;
       z-index: -1;
-      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-      overflow: hidden;
-    }
-
-    .stars::after {
-      content: '';
-      position: absolute;
-      top: -1000px;
-      left: -1000px;
-      width: 3000px;
-      height: 3000px;
-      background: transparent url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/stars.png') repeat;
       animation: moveStars 100s linear infinite;
-      opacity: 0.2;
     }
 
     @keyframes moveStars {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(1000px, 1000px); }
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
     }
 
     h1 {
@@ -127,7 +115,7 @@
 
   <div class="rocket">
     <div class="bottle-body">
-      <div class="bottle-label"></div>
+      <div class="bottle-label">Mattoni</div>
       <div class="bottle-cap"></div>
     </div>
   </div>
@@ -142,18 +130,5 @@
 
   <button class="btn small-btn" onclick="alert('Tato sekce se právě dopracovává, brzy online!')">🧢 Merch</button>
   <button class="btn small-btn" onclick="alert('Tato sekce se právě dopracovává, brzy online!')">🎴 Kartičky</button>
-
-  <!-- Skrytý audio přehrávač -->
-  <audio id="bg-music" src="game.mp3" loop></audio>
-
-  <script>
-    // Spustí hudbu po prvním kliknutí
-    document.addEventListener("click", () => {
-      const audio = document.getElementById("bg-music");
-      if (audio && audio.paused) {
-        audio.play().catch(() => {});
-      }
-    });
-  </script>
 </body>
 </html>
