@@ -3,218 +3,136 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ARES</title>
+  <title>Ares Rakety</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body, html {
       height: 100%;
       font-family: Arial, sans-serif;
-      color: white;
+      background: black;
       overflow-x: hidden;
+      color: white;
     }
 
-    /* YouTube video pozadí */
-    .video-bg {
+    #stars {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100vw;
       height: 100vh;
       z-index: -1;
-      pointer-events: none;
       overflow: hidden;
     }
 
-    .video-bg iframe {
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
     }
 
     .content {
       position: relative;
-      z-index: 1;
       text-align: center;
-      padding: 40px 10px 100px;
-      background: rgba(0, 0, 0, 0.6); /* tmavý průhledný překryv */
+      padding: 2rem;
     }
 
-    h1 {
-      font-size: 2.2em;
-      margin-bottom: 20px;
-      animation: pulse 2s infinite;
+    .bottle {
+      width: 80px;
+      animation: bounce 2s infinite;
+      margin-top: 40px;
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.9; }
-    }
-
-    .rocket {
-      width: 60px;
-      margin: 20px auto 40px auto;
-      animation: gentleBounce 3s infinite ease-in-out;
-      position: relative;
-    }
-
-    @keyframes gentleBounce {
+    @keyframes bounce {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-20px); }
     }
 
-    .bottle-body {
-      background: #bfe2ff;
-      width: 40px;
-      height: 100px;
-      margin: 0 auto;
-      border-radius: 20px 20px 10px 10px;
-      box-shadow: 0 0 10px #61c4ff;
-      position: relative;
-    }
-
-    .bottle-cap {
-      width: 20px;
-      height: 10px;
-      background: red;
-      border-radius: 5px 5px 0 0;
-      position: absolute;
-      top: -10px;
-      left: 10px;
-    }
-
-    .engine {
-      width: 10px;
-      height: 10px;
-      background: #333;
-      border-radius: 50%;
-      position: absolute;
-      bottom: -10px;
-    }
-
-    .engine.left {
-      left: 2px;
-    }
-
-    .engine.right {
-      right: 2px;
-    }
-
-    .flame {
-      width: 8px;
-      height: 20px;
-      background: orange;
-      position: absolute;
-      bottom: -20px;
-      left: 1px;
-      border-radius: 50%;
-      animation: flameFlicker 0.2s infinite alternate;
-      opacity: 0.8;
-      filter: blur(1px);
-    }
-
-    .engine.right .flame {
-      left: 1px;
-    }
-
-    @keyframes flameFlicker {
-      0% { height: 18px; opacity: 0.6; transform: scaleY(1); }
-      100% { height: 24px; opacity: 1; transform: scaleY(1.2); }
+    .button-row {
+      margin-top: 40px;
     }
 
     .btn {
       display: inline-block;
-      background: #ff4d00;
-      padding: 10px 20px;
-      color: white;
-      font-size: 1em;
-      border: none;
-      border-radius: 10px;
-      text-decoration: none;
       margin: 10px;
-      cursor: pointer;
+      padding: 10px 20px;
+      border: 2px solid white;
+      background: transparent;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s, color 0.3s;
     }
 
     .btn:hover {
-      background: #ffa600;
+      background: white;
+      color: black;
     }
 
-    .video-section {
-      margin-top: 60px;
-      padding-bottom: 50px;
-    }
-
-    .video-section iframe {
+    iframe {
+      margin-top: 80px;
       width: 90%;
-      max-width: 560px;
-      height: 315px;
+      max-width: 800px;
+      height: 450px;
       border: none;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #222;
     }
 
-    .video-section h2 {
-      margin-bottom: 15px;
-    }
-
-    .video-section p {
-      font-size: 1em;
-      opacity: 0.9;
-      margin-top: 10px;
+    .section {
+      margin-top: 60px;
     }
   </style>
 </head>
 <body>
 
-  <!-- YouTube background -->
-  <div class="video-bg">
-    <iframe
-      src="https://www.youtube.com/embed/bGRvOzYweAo?autoplay=1&mute=1&loop=1&playlist=bGRvOzYweAo&controls=0&showinfo=0&rel=0&modestbranding=1"
-      frameborder="0"
-      allow="autoplay"
-      allowfullscreen
-    ></iframe>
-  </div>
+  <!-- Animované hvězdy -->
+  <div id="stars"></div>
 
-  <!-- Obsah -->
   <div class="content">
-    <h1>🚀 Vítejte v ARES</h1>
-    <p>Prodáváme cool merch a kartičky inspirované vědou!</p>
+    <h1>Ares Rakety</h1>
 
-    <!-- Lahev jako raketa -->
-    <div class="rocket">
-      <div class="bottle-body">
-        <div class="bottle-cap"></div>
-        <div class="engine left"><div class="flame"></div></div>
-        <div class="engine right"><div class="flame"></div></div>
-      </div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Mattoni_mineral_water_bottle.jpg/240px-Mattoni_mineral_water_bottle.jpg" alt="Mattoni Raketa" class="bottle">
+
+    <div class="button-row">
+      <a href="#" class="btn">Merch (dopracovává se)</a>
+      <a href="#" class="btn">Kartičky (dopracovává se)</a>
     </div>
 
-    <!-- Tlačítka -->
-    <a class="btn" href="https://www.youtube.com/@stepisev" target="_blank">
-      📺 Sleduj naše starty na YouTube
-    </a><br>
-    <button class="btn" onclick="alert('Tato sekce se právě dopracovává, brzy online!')">🧢 Merch</button>
-    <button class="btn" onclick="alert('Tato sekce se právě dopracovává, brzy online!')">🎴 Kartičky</button>
-
-    <!-- Video sekce -->
-    <div class="video-section">
-      <h2>🎬 Podívej se na ARES v akci:</h2>
+    <div class="section">
       <iframe src="https://www.youtube.com/embed/ATiPCtOr2OM" allowfullscreen></iframe>
     </div>
 
-    <!-- Rozhlas sekce -->
-    <div class="video-section">
-      <h2>📻 ARES Rozhlas</h2>
-      <p>Brzy zde najdete audio zprávy, podcasty a rozhlasové hlášení o našich startech a výzkumu!</p>
+    <div class="section">
+      <h2>Ares Rozhlas</h2>
+      <p>Starty, novinky a oznámení.</p>
     </div>
-
   </div>
+
+  <script>
+    const starsContainer = document.getElementById('stars');
+
+    for (let i = 0; i < 150; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.top = `${-Math.random() * 100}vh`;
+      star.style.animationDuration = `${2 + Math.random() * 4}s`;
+      star.style.opacity = Math.random();
+      starsContainer.appendChild(star);
+    }
+  </script>
 
 </body>
 </html>
-
