@@ -11,35 +11,20 @@
       box-sizing: border-box;
     }
 
-    body, html {
+    body {
       height: 100%;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
-    }
-
-    /* Vesmírné video pozadí */
-    .background-video {
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      min-width: 100%;
-      min-height: 100%;
-      z-index: -1;
-      object-fit: cover;
-    }
-
-    .content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 30px;
+      background-color: black;
       color: white;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      text-align: center;
+      padding: 30px 10px;
     }
 
     h1 {
-      font-size: 2em;
-      animation: pulse 2s infinite;
+      font-size: 2.2em;
       margin-bottom: 20px;
+      animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
@@ -50,8 +35,13 @@
     .rocket {
       width: 60px;
       height: 150px;
-      margin: 50px auto 20px auto;
-      animation: bounce 2s infinite ease-in-out;
+      margin: 20px auto 40px auto;
+      animation: gentleBounce 3s infinite ease-in-out;
+    }
+
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     .bottle-body {
@@ -74,11 +64,6 @@
       left: 10px;
     }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-40px); }
-    }
-
     .btn {
       display: inline-block;
       background: #ff4d00;
@@ -95,37 +80,31 @@
     .btn:hover {
       background: #ffa600;
     }
+
+    p {
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Vesmírné video pozadí -->
-  <video class="background-video" autoplay muted loop>
-    <source src="https://cdn.pixabay.com/video/2023/01/12/146328-790875563_large.mp4" type="video/mp4">
-    Tvoje prohlížeč nepodporuje video tag.
-  </video>
+  <h1>🚀 Vítejte v ARES</h1>
 
-  <div class="content">
-    <h1>🚀 Vítejte v ARES</h1>
+  <p>Prodáváme cool merch a kartičky inspirované vědou!</p>
 
-    <p>Prodáváme cool merch a kartičky inspirované vědou!</p>
-
-    <a class="btn" href="https://www.youtube.com/@stepisev" target="_blank">
-      📺 Sleduj naše starty na YouTube
-    </a>
-    <br />
-    <button class="btn" onclick="alert('Tato sekce se právě dopracovává, brzy online!')">🧢 Merch</button>
-    <button class="btn" onclick="alert('Tato sekce se právě dopracovává, brzy online!')">🎴 Kartičky</button>
-
-    <!-- RAKETA POSUNUTA NÍŽ -->
-    <div class="rocket">
-      <div class="bottle-body">
-        <div class="bottle-cap"></div>
-      </div>
+  <!-- Láhev (raketa) posunutá výš -->
+  <div class="rocket">
+    <div class="bottle-body">
+      <div class="bottle-cap"></div>
     </div>
-
   </div>
+
+  <a class="btn" href="https://www.youtube.com/@stepisev" target="_blank">
+    📺 Sleduj naše starty na YouTube
+  </a>
+  <br />
+  <button class="btn" onclick="alert('Tato sekce se právě dopracovává, brzy online!')">🧢 Merch</button>
+  <button class="btn" onclick="alert('Tato sekce se právě dopracovává, brzy online!')">🎴 Kartičky</button>
 
 </body>
 </html>
-
