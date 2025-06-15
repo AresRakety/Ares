@@ -34,9 +34,9 @@
 
     .rocket {
       width: 60px;
-      height: 150px;
       margin: 20px auto 40px auto;
       animation: gentleBounce 3s infinite ease-in-out;
+      position: relative;
     }
 
     @keyframes gentleBounce {
@@ -62,6 +62,47 @@
       position: absolute;
       top: -10px;
       left: 10px;
+    }
+
+    /* Trysky */
+    .engine {
+      width: 10px;
+      height: 10px;
+      background: #333;
+      border-radius: 50%;
+      position: absolute;
+      bottom: -10px;
+    }
+
+    .engine.left {
+      left: 2px;
+    }
+
+    .engine.right {
+      right: 2px;
+    }
+
+    /* Plameny */
+    .flame {
+      width: 8px;
+      height: 20px;
+      background: orange;
+      position: absolute;
+      bottom: -20px;
+      left: 1px;
+      border-radius: 50%;
+      animation: flameFlicker 0.2s infinite alternate;
+      opacity: 0.8;
+      filter: blur(1px);
+    }
+
+    .engine.right .flame {
+      left: 1px;
+    }
+
+    @keyframes flameFlicker {
+      0% { height: 18px; opacity: 0.6; transform: scaleY(1); }
+      100% { height: 24px; opacity: 1; transform: scaleY(1.2); }
     }
 
     .btn {
@@ -92,13 +133,22 @@
 
   <p>Prodáváme cool merch a kartičky inspirované vědou!</p>
 
-  <!-- Láhev (raketa) posunutá výš -->
+  <!-- Raketa s tryskami -->
   <div class="rocket">
     <div class="bottle-body">
       <div class="bottle-cap"></div>
+
+      <!-- Motory -->
+      <div class="engine left">
+        <div class="flame"></div>
+      </div>
+      <div class="engine right">
+        <div class="flame"></div>
+      </div>
     </div>
   </div>
 
+  <!-- Tlačítka -->
   <a class="btn" href="https://www.youtube.com/@stepisev" target="_blank">
     📺 Sleduj naše starty na YouTube
   </a>
