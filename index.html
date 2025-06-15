@@ -14,34 +14,15 @@
     body, html {
       height: 100%;
       font-family: Arial, sans-serif;
+      background: black;
       color: white;
       overflow-x: hidden;
     }
 
-    /* YouTube video pozadí */
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .video-bg iframe {
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-    }
-
     .content {
       position: relative;
-      z-index: 1;
       text-align: center;
       padding: 40px 10px 100px;
-      background: rgba(0, 0, 0, 0.6); /* tmavý průhledný překryv */
     }
 
     h1 {
@@ -96,13 +77,8 @@
       bottom: -10px;
     }
 
-    .engine.left {
-      left: 2px;
-    }
-
-    .engine.right {
-      right: 2px;
-    }
+    .engine.left { left: 2px; }
+    .engine.right { right: 2px; }
 
     .flame {
       width: 8px;
@@ -170,17 +146,6 @@
 </head>
 <body>
 
-  <!-- YouTube background -->
-  <div class="video-bg">
-    <iframe
-      src="https://www.youtube.com/embed/bGRvOzYweAo?autoplay=1&mute=1&loop=1&playlist=bGRvOzYweAo&controls=0&showinfo=0&rel=0&modestbranding=1"
-      frameborder="0"
-      allow="autoplay"
-      allowfullscreen
-    ></iframe>
-  </div>
-
-  <!-- Obsah -->
   <div class="content">
     <h1>🚀 Vítejte v ARES</h1>
     <p>Prodáváme cool merch a kartičky inspirované vědou!</p>
@@ -203,18 +168,6 @@
 
     <!-- Video sekce -->
     <div class="video-section">
-      <h2>🎬 Podívej se na ARES v akci:</h2>
-      <iframe src="https://www.youtube.com/embed/ATiPCtOr2OM" allowfullscreen></iframe>
-    </div>
+      <h2
 
-    <!-- Rozhlas sekce -->
-    <div class="video-section">
-      <h2>📻 ARES Rozhlas</h2>
-      <p>Brzy zde najdete audio zprávy, podcasty a rozhlasové hlášení o našich startech a výzkumu!</p>
-    </div>
-
-  </div>
-
-</body>
-</html>
 
