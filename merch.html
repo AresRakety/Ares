@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ares Merch – Předobjednávka</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0e0e0e;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      background: linear-gradient(45deg, #00ffcc, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .note {
+      color: #ccc;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    .price {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #00ffcc;
+      margin-bottom: 30px;
+    }
+
+    form {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.15);
+      max-width: 400px;
+      width: 100%;
+      animation: fadeIn 1s ease;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    select, input, textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      background: #2a2a2a;
+      color: #fff;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 14px;
+      width: 100%;
+      background: linear-gradient(45deg, #00ffaa, #00ccff);
+      border: none;
+      color: #000;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+    }
+
+    .shirt-preview {
+      margin-top: 40px;
+      text-align: center;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .shirt-preview img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      transition: 0.3s;
+    }
+
+    .shirt-preview img:hover {
+      transform: scale(1.03);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🛒 Ares Merch</h1>
+  <p class="note">Předpokládané datum vydání: <strong>1. července</strong></p>
+  <p class="price">Cena: <strong>280 Kč</strong></p>
+
+  <form action="https://formspree.io/f/movwwnja" method="POST">
+    <label for="color">Vyber barvu trička:</label>
+    <select name="color" id="color" onchange="updateImage()" required>
+      <option value="cerne">Černé tričko</option>
+      <option value="zelene">Zelené tričko</option>
+    </select>
+
+    <label for="size">Velikost trička:</label>
+    <input type="text" name="size" id="size" placeholder="např. M, L, XL" required />
+
+    <label for="email">Tvůj e-mail:</label>
+    <input type="email" name="email" id="email" placeholder="např. ares@email.cz" required />
+
+    <label for="address">Adresa doručení:</label>
+    <textarea name="address" id="address" rows="3" placeholder="Např. Praha, Ulice 123" required></textarea>
+
+    <button type="submit">Odeslat předobjednávku</button>
+  </form>
+
+  <div class="shirt-preview">
+    <img id="shirtImage" src="https://i.postimg.cc/YvnDbNzY/cerne.png" alt="Tričko">
+  </div>
+
+  <script>
+    function updateImage() {
+      const selected = document.getElementById("color").value;
+      const shirtImage = document.getElementById("shirtImage");
+
+      if (selected === "cerne") {
+        shirtImage.src = "https://i.postimg.cc/YvnDbNzY/cerne.png";
+      } else if (selected === "zelene") {
+        shirtImage.src = "https://i.postimg.cc/mcPXqcmq/zelene.png";
+      }
+    }
+  </script>
+</body>
+</html>
