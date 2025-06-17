@@ -1,169 +1,115 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ares Merch – Předobjednávka</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>ARES Tričko – Předobjednávka</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #0e0e0e;
+      background-color: #111;
       color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
     }
 
-    h1 {
-      font-size: 2.8rem;
-      background: linear-gradient(45deg, #00ffcc, #00ffff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 10px;
-      animation: fadeIn 1.2s ease;
-    }
-
-    .note {
-      color: #ccc;
-      margin-bottom: 20px;
-      font-size: 1rem;
-    }
-
-    .price {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #00ffcc;
+    h2 {
+      color: #00ff88;
+      font-size: 2.5em;
       margin-bottom: 30px;
     }
 
     form {
-      background: #1a1a1a;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 0 30px rgba(0, 255, 200, 0.15);
-      max-width: 400px;
-      width: 100%;
-      animation: fadeIn 1s ease;
+      background-color: #1e1e1e;
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 480px;
+      margin: auto;
+      box-shadow: 0 0 20px #00ff8855;
+      font-size: 1.1em;
     }
 
-    label {
-      display: block;
-      margin-top: 15px;
-      margin-bottom: 5px;
-      font-weight: 600;
-    }
-
-    select, input, textarea {
-      width: 100%;
+    input, select, textarea {
+      width: 95%;
       padding: 12px;
-      border-radius: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
       border: none;
-      background: #2a2a2a;
-      color: #fff;
-      margin-bottom: 10px;
-      font-size: 1rem;
+      font-size: 1em;
     }
 
-    textarea {
-      resize: vertical;
-    }
-
-    button {
-      margin-top: 15px;
-      padding: 14px;
-      width: 100%;
-      background: linear-gradient(45deg, #00ffaa, #00ccff);
-      border: none;
+    input[type="submit"] {
+      background-color: #00ff88;
       color: #000;
       font-weight: bold;
-      border-radius: 12px;
       cursor: pointer;
-      font-size: 1rem;
-      transition: transform 0.2s, box-shadow 0.3s;
-    }
-
-    button:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
-    }
-
-    .shirt-preview {
-      margin-top: 40px;
-      text-align: center;
-      animation: fadeIn 1.5s ease;
-    }
-
-    .shirt-preview img {
-      width: 100%;
-      max-width: 280px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
       transition: 0.3s;
     }
 
-    .shirt-preview img:hover {
-      transform: scale(1.03);
+    input[type="submit"]:hover {
+      background-color: #00cc6f;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 2rem;
-      }
+    img {
+      margin-top: 30px;
+      max-width: 320px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px #00ff8844;
     }
   </style>
 </head>
 <body>
-  <h1>🛒 Ares Merch</h1>
-  <p class="note">Předpokládané datum vydání: <strong>1. července</strong></p>
-  <p class="price">Cena: <strong>280 Kč</strong></p>
+
+  <h2>ARES Tričko – Předobjednávka</h2>
 
   <form action="https://formspree.io/f/movwwnja" method="POST">
-    <label for="color">Vyber barvu trička:</label>
-    <select name="color" id="color" onchange="updateImage()" required>
-      <option value="cerne">Černé tričko</option>
-      <option value="zelene">Zelené tričko</option>
-    </select>
+    <label for="email">📧 Email:</label><br>
+    <input type="email" name="email" required><br>
 
-    <label for="size">Velikost trička:</label>
-    <input type="text" name="size" id="size" placeholder="např. M, L, XL" required />
+    <label for="type">🧍 Typ trička:</label><br>
+    <select name="type" required>
+      <option value="">-- Vyber typ --</option>
+      <option value="panske">Pánské</option>
+      <option value="damske">Dámské</option>
+      <option value="detske">Dětské</option>
+    </select><br>
 
-    <label for="email">Tvůj e-mail:</label>
-    <input type="email" name="email" id="email" placeholder="např. ares@email.cz" required />
+    <label for="color">🎨 Barva:</label><br>
+    <select name="color" onchange="updateImage()" required>
+      <option value="">-- Vyber barvu --</option>
+      <option value="cerna">Černá</option>
+      <option value="zelena">Zelená</option>
+      <option value="bila">Bílá</option>
+    </select><br>
 
-    <label for="address">Adresa doručení:</label>
-    <textarea name="address" id="address" rows="3" placeholder="Např. Praha, Ulice 123" required></textarea>
+    <label for="size">📏 Velikost:</label><br>
+    <input type="text" name="size" placeholder="Např. M, L, XL..." required><br>
 
-    <button type="submit">Odeslat předobjednávku</button>
+    <label for="address">📦 Kam doručit:</label><br>
+    <textarea name="address" rows="3" placeholder="Ulice, město..." required></textarea><br>
+
+    <strong style="font-size: 1.2em;">💸 Cena: 280 Kč</strong><br><br>
+
+    <input type="submit" value="✅ Odeslat předobjednávku">
   </form>
 
-  <div class="shirt-preview">
-    <img id="shirtImage" src="https://i.postimg.cc/YvnDbNzY/cerne.png" alt="Tričko">
-  </div>
+  <img id="shirtPreview" src="https://i.postimg.cc/tgp0R21S/Sn-mek-obrazov195537.png" alt="Tričko náhled">
 
   <script>
     function updateImage() {
-      const selected = document.getElementById("color").value;
-      const shirtImage = document.getElementById("shirtImage");
+      const color = document.querySelector('select[name="color"]').value;
+      const img = document.getElementById("shirtPreview");
 
-      if (selected === "cerne") {
-        shirtImage.src = "https://i.postimg.cc/YvnDbNzY/cerne.png";
-      } else if (selected === "zelene") {
-        shirtImage.src = "https://i.postimg.cc/mcPXqcmq/zelene.png";
+      if (color === "cerna") {
+        img.src = "https://i.postimg.cc/tgp0R21S/Sn-mek-obrazov195537.png";
+      } else if (color === "zelena") {
+        img.src = "https://i.postimg.cc/25ZXJM21/Sn-mek-obrazovky-2025-06-16-195203.png";
+      } else if (color === "bila") {
+        img.src = "https://i.postimg.cc/bJwKkr91/Sn-mek-ob5-06-16-195440.png";
+      } else {
+        img.src = "";
       }
     }
   </script>
+
 </body>
 </html>
